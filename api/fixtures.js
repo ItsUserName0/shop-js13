@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const config = require("./config");
 const Category = require("./models/Category");
 const Product = require("./models/Product");
+const User = require("./models/User");
+const {nanoid} = require("nanoid");
 
 const run = async () => {
   await mongoose.connect(config.mongo.db, config.mongo.options);
@@ -42,6 +44,18 @@ const run = async () => {
     description: 'Powerful GeForce RTX™ 30 VISION series accelerates your work with incredible boosts in performance',
     image: 'gpu.jpg'
   });
+
+  await User.create({
+    email: 'user@user',
+    password: '123',
+    token: nanoid(),
+    role: 'user',
+  },{
+    email: 'admin@admin',
+    password: '123',
+    token: nanoid(),
+    role: 'admin',
+  },);
 
   await mongoose.connection.close();
 };

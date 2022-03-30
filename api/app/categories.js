@@ -1,5 +1,7 @@
 const express = require('express');
 const Category = require('../models/Category');
+const auth = require("../middleware/auth");
+const permit = require('../middleware/permit');
 
 const router = express.Router();
 
@@ -12,7 +14,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", auth, permit('admin'), async (req, res, next) => {
   try {
     const categoryData = req.body;
     const category = new Category(categoryData);

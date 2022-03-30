@@ -7,8 +7,7 @@ export const fetchProductsSuccess = createAction(
   props<{products: Product[]}>()
 );
 export const fetchProductsFailure = createAction(
-  '[Products] Fetch Failure',
-  props<{error: string}>()
+  '[Products] Fetch Failure'
 );
 
 export const createProductRequest = createAction(

@@ -1,10 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="space-between flex-start">
   <h1>Products</h1>
-  <a routerLink="/products/new" mat-button>NEW PRODUCT</a>
-</div>
-
-<div class="error" *ngIf="error | async">
-  {{ error | async }}
+  <a routerLink="/products/new" mat-button *appHasRoles="['admin']">NEW PRODUCT</a>
 </div>
 
 <mat-progress-spinner

@@ -5,12 +5,14 @@ import { Router } from '@angular/router';
 import {
   loginUserFailure,
   loginUserRequest,
-  loginUserSuccess, logoutUser, logoutUserRequest,
+  loginUserSuccess,
+  logoutUser,
+  logoutUserRequest,
   registerUserFailure,
   registerUserRequest,
   registerUserSuccess
 } from './users.actions';
-import { map, mergeMap, NEVER, tap, withLatestFrom } from 'rxjs';
+import { map, mergeMap, tap } from 'rxjs';
 import { HelpersService } from '../services/helpers.service';
 import { AppState } from './types';
 import { Store } from '@ngrx/store';
@@ -23,7 +25,8 @@ export class UsersEffects {
     private router: Router,
     private helpers: HelpersService,
     private store: Store<AppState>
-  ) {}
+  ) {
+  }
 
   registerUser = createEffect(() => this.actions.pipe(
     ofType(registerUserRequest),
@@ -51,16 +54,14 @@ export class UsersEffects {
 
   logoutUser = createEffect(() => this.actions.pipe(
     ofType(logoutUserRequest),
-    withLatestFrom(this.store.select(state => state.users.user)),
-    mergeMap(([_, user]) => {
-      if (user) {
-        return this.usersService.logout(user.token).pipe(
-          map(() => logoutUser()),
-          tap(() => this.helpers.openSnackbar('Logout successful'))
-        );
-      }
-
-      return NEVER;
+    mergeMap(() => {
+      return this.usersService.logout().pipe(
+        map(() => logoutUser()),
+        tap(() => {
+          void this.router.navigate(['/']);
+          this.helpers.openSnackbar('Logout successful')
+        })
+      );
     }))
   )
 }

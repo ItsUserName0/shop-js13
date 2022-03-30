@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee8016fc-74bd-46e8-bbed-d82b4f6f74d4" name="Changes" comment="Lesson-83, Webinar-42" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="24xUIzLUc2mVzPNx3pXabrxis20" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.18.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.18.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../forum/api" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee8016fc-74bd-46e8-bbed-d82b4f6f74d4" name="Changes" comment="" />
+      <created>1644571656936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644571656936</updated>
+      <workItem from="1644571658087" duration="6456000" />
+      <workItem from="1644599431796" duration="2820000" />
+      <workItem from="1644643480072" duration="429000" />
+      <workItem from="1645080572854" duration="7838000" />
+      <workItem from="1645095713600" duration="3885000" />
+      <workItem from="1645626443498" duration="4737000" />
+      <workItem from="1645690335602" duration="16300000" />
+      <workItem from="1645757434311" duration="10942000" />
+      <workItem from="1645863582271" duration="3564000" />
+      <workItem from="1646136968244" duration="2109000" />
+      <workItem from="1646199203750" duration="614000" />
+      <workItem from="1646231180327" duration="72000" />
+      <workItem from="1646303414824" duration="495000" />
+      <workItem from="1646313449093" duration="11174000" />
+      <workItem from="1646375448397" duration="1283000" />
+      <workItem from="1646498058684" duration="814000" />
+      <workItem from="1646499704035" duration="4493000" />
+      <workItem from="1646563021896" duration="6523000" />
+      <workItem from="1646597268603" duration="2136000" />
+      <workItem from="1646602635017" duration="4391000" />
+      <workItem from="1646641671405" duration="7187000" />
+      <workItem from="1646725424679" duration="612000" />
+      <workItem from="1646739466346" duration="6558000" />
+      <workItem from="1646827835671" duration="4962000" />
+      <workItem from="1646885019997" duration="30189000" />
+      <workItem from="1646982323845" duration="694000" />
+      <workItem from="1646999446587" duration="10362000" />
+      <workItem from="1647418719303" duration="433000" />
+      <workItem from="1647438645157" duration="44000" />
+    </task>
+    <task id="LOCAL-00001" summary="Web-41 added mongoose model, removed old databases.">
+      <created>1645083219104</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645083219104</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Lesson-83, Webinar-42">
+      <created>1645703125247</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1645703125247</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Web-41 added mongoose model, removed old databases." />
+    <MESSAGE value="Lesson-83, Webinar-42" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson-83, Webinar-42" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -10,6 +10,7 @@ import {
 } from './products.actions';
 import { mergeMap, map, catchError, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { HelpersService } from '../services/helpers.service';
 
 @Injectable()
 export class ProductsEffects {
@@ -17,9 +18,10 @@ export class ProductsEffects {
     ofType(fetchProductsRequest),
     mergeMap(() => this.productsService.getProducts().pipe(
       map(products => fetchProductsSuccess({products})),
-      catchError(() => of(fetchProductsFailure({
-        error: 'Something went wrong'
-      })))
+      catchError(() => {
+        this.helpers.openSnackbar('Could not get products');
+        return of(fetchProductsFailure());
+      })
     ))
   ));
 
@@ -35,6 +37,7 @@ export class ProductsEffects {
   constructor(
     private actions: Actions,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private helpers: HelpersService,
   ) {}
 }

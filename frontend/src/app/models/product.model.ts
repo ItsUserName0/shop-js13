@@ -9,11 +9,12 @@ export class Product {
 }
 
 export interface ProductData {
-  [key: string]: any;
-  title: string;
-  price: number;
-  description: string;
-  image: File | null;
+  [key: string]: any,
+  title: string,
+  price: number,
+  description: string,
+  image: File | null,
+  category: string,
 }
 
 export interface ApiProductData {

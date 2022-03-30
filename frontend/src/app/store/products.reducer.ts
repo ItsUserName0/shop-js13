@@ -12,7 +12,6 @@ import { ProductsState } from './types';
 const initialState: ProductsState = {
   products: [],
   fetchLoading: false,
-  fetchError: null,
   createLoading: false,
   createError: null,
 };
@@ -25,10 +24,9 @@ export const productsReducer = createReducer(
     fetchLoading: false,
     products
   })),
-  on(fetchProductsFailure, (state, {error}) => ({
+  on(fetchProductsFailure, state => ({
     ...state,
-    fetchLoading: false,
-    fetchError: error
+    fetchLoading: false
   })),
   on(createProductRequest, state => ({...state, createLoading: true})),
   on(createProductSuccess, state => ({...state, createLoading: false})),

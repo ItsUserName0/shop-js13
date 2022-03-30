@@ -13,12 +13,10 @@ import { fetchProductsRequest } from '../../store/products.actions';
 export class ProductsComponent implements OnInit {
   products: Observable<Product[]>
   loading: Observable<boolean>
-  error: Observable<null | string>
 
   constructor(private store: Store<AppState>) {
     this.products = store.select(state => state.products.products);
     this.loading = store.select(state => state.products.fetchLoading);
-    this.error = store.select(state => state.products.fetchError);
   }
 
   ngOnInit(): void {

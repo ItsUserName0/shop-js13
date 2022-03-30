@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './ui/layout/layout.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -21,28 +21,30 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FileInputComponent } from './ui/file-input/file-input.component';
 import { ImagePipe } from './pipes/image.pipe';
-import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { productsReducer } from './store/products.reducer';
-import { ProductsEffects } from './store/products.effects';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RegisterComponent } from './pages/register/register.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { usersReducer } from './store/users.reducer';
-import { UsersEffects } from './store/users.effects';
 import { LoginComponent } from './pages/login/login.component';
 import { CenteredCardComponent } from './ui/centered-card/centered-card.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { localStorageSync } from 'ngrx-store-localstorage';
+import { AppStoreModule } from './store/app-store.module';
+import { MatSelectModule } from '@angular/material/select';
+import { AuthInterceptor } from './auth.interceptor';
+import { HasRolesDirective } from './directives/has-roles.directive';
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { environment } from '../environments/environment';
 
-const localStorageSyncReducer = (reducer: ActionReducer<any>) => {
-  return localStorageSync({
-    keys: [{users: ['user']}],
-    rehydrate: true
-  })(reducer);
+const socialConfig: SocialAuthServiceConfig = {
+  autoLogin: false,
+  providers: [
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider(environment.fbAppId, {
+        scope: 'email,public_profile',
+      }),
+    }
+  ]
 }
-
-const metaReducers: MetaReducer[] = [localStorageSyncReducer];
 
 @NgModule({
   declarations: [
@@ -55,10 +57,10 @@ const metaReducers: MetaReducer[] = [localStorageSyncReducer];
     RegisterComponent,
     LoginComponent,
     CenteredCardComponent,
+    HasRolesDirective,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,
@@ -72,16 +74,18 @@ const metaReducers: MetaReducer[] = [localStorageSyncReducer];
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    StoreModule.forRoot({
-      products: productsReducer,
-      users: usersReducer
-    }, {metaReducers}),
-    EffectsModule.forRoot([ProductsEffects, UsersEffects]),
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatMenuModule,
+    AppRoutingModule,
+    AppStoreModule,
+    MatSelectModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: 'SocialAuthServiceConfig', useValue: socialConfig},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

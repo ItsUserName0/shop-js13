@@ -7,6 +7,8 @@ import { AppState } from '../../store/types';
 import { Store } from '@ngrx/store';
 import { createProductRequest } from '../../store/products.actions';
 import { Observable } from 'rxjs';
+import { Category } from '../../models/category.model';
+import { fetchCategoriesRequest } from '../../store/categories.actions';
 
 @Component({
   selector: 'app-edit-product',
@@ -17,15 +19,18 @@ export class EditProductComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   loading: Observable<boolean>;
   error: Observable<string | null>;
+  categories: Observable<Category[]>;
 
   constructor(
     private store: Store<AppState>
   ) {
     this.loading = store.select(state => state.products.createLoading);
     this.error = store.select(state => state.products.createError);
+    this.categories = store.select(state => state.categories.items);
   }
 
   ngOnInit(): void {
+    this.store.dispatch(fetchCategoriesRequest());
   }
 
   onSubmit() {
